@@ -10,6 +10,7 @@ enum KeychainError: Error {
   case nullValue
 }
 
+@available(iOS 13.0.0, *)
 public final actor KeyChainSwift {
     
     private var accessGroup: String?
@@ -60,6 +61,7 @@ public final actor KeyChainSwift {
     
 }
 
+@available(iOS 13.0.0, *)
 extension KeyChainSwift {
     public func getValueFor(_ key: String, withAccessType: CFString? = nil) throws -> String {
         guard let data = try getDataFor(key, withAccessType: withAccessType) else {
@@ -107,12 +109,14 @@ extension KeyChainSwift {
     }
 }
 
+@available(iOS 13.0.0, *)
 internal extension KeyChainSwift {
     func getSecCopyErrorMessage(_ status: OSStatus) -> String? {
         SecCopyErrorMessageString(status, nil) as? String
     }
 }
 
+@available(iOS 13.0.0, *)
 extension KeyChainSwift {
     func addAccessGroupIfAvailable(_ items:inout [String:Any]) {
         guard let accessGroup else {return}

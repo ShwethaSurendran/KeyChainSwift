@@ -6,6 +6,7 @@
 
 import Foundation
 
+@available(iOS 13.0.0, *)
 extension KeyChainSwift {
     
     public func update(_ value: String,
